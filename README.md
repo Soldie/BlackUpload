@@ -61,11 +61,6 @@ Developed using PHP and comes with 3 main examples to show you how this PHP Clas
 ```php
 $upload = new Upload;
 $upload->setUploadController($upload->sanitize($_SERVER['PHP_SELF']));
-$upload->setUploadFolder("uploads");
-if($_SERVER['REQUEST_METHOD'] === "POST"){
-    $upload->setUpload($_FILES['file']);
-    $upload->upload();
-}
 $upload->generateForm(false);
 ```
 
