@@ -55,26 +55,6 @@ Developed using PHP and comes with 3 main examples to show you how this PHP Clas
 20. Upload Worker Factory Genertor
 21. Easy to setup in less then 5 minutes
 
-# How to use
-
-1. Generate an upload form
-```php
-$upload = new Upload;
-$upload->setUploadController($upload->sanitize($_SERVER['PHP_SELF']));
-$upload->generateForm(false);
-```
-
-
-2. Add the upload worker snippet
-```php
-if ($_SERVER['REQUEST_METHOD'] === "POST") {
-    $upload->setUploadFolder("upload");
-    $upload->setUpload($_FILES['file']);
-    $upload->setFileOverwriting(false);
-    $upload->upload();
-}
-```
-
 # Documentation
 
 ## $Upload::setUpload($upload_input)
