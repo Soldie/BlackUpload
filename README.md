@@ -1,6 +1,6 @@
 ![Logo](https://h.top4top.io/p_1531l8fhu1.png)
 
-![GradeA](https://www.code-inspector.com/project/8000/status/svg)
+![GradeA](https://www.code-inspector.com/project/8000/status/svg)  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![Version](https://badgen.net/badge/version/v2.5/blue)
 
 # BlackUpload PHP Library
 
