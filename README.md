@@ -4,48 +4,54 @@
 
 PHP Library to help you build your own file sharing website.
 
-Comes with more then 15 feature and you can setup it in less then 5 minutes.
+Comes with more then 20 features and you can setup it in less then 5 minutes using pre-made simple examples.
 
-You can use it as an API for your website or add a database wrapper to it and create a whole service.
+The class has more then 5 protection levels to make your life better and your server secure.
 
-Coded in PHP and comes with 3 examples to show you how this PHP Class work
+You can use it as an API for your website or add a database wrapper to it and create a whole file sharing service.
+
+Developed using PHP and comes with 3 main examples to show you how this PHP Class work
 
 1. Real Life Example with all filters and security levels enabled
 
 2. Simple Test Example with no filters to show you how it works
 
-3. Simple API without Auth to show you how to use it as a service 
+3. Simple API without Auth with all filters enabled to show you how to use it as a service 
 
 
 # Features
 
-1. Simple to use
+1. Simple to use and implement
 2. 4 Protection levels
    + Mime Type
    + Extensions
    + Size
    + Forbidden names
-3. Out Of The Box Functions
-4. Multi-File Upload Support
-5. Quality [ Grade A ] Code
-6. Callbacks Support
+3. Image Dimenstion Checker
+4. Image Validator
+5. Out Of The Box Functions
+6. Multi-File Upload Support
+7. Quality [ Grade A ] Code
+8. Callbacks Support
    + Single Argument
    + Multiple Arguments
-7. Logs System Function
-8. File and Dir checker
-9. Will documented and easy to read
-10. QR Code Generator
-11. Download URL Generator
-12. Comes with more then 1 example
-13. File information
+9. Logs System Function
+10. File and Dir checker
+11. Will documented and easy to read
+12. QR Code Generator
+13. Download URL Generator
+14. Comes with more then 1 example
+15. File information
    + File name
    + File SHA-128 Hash
    + File Size
    + File Upload Date
-14. Generate HTML Forms [Single,Multi] Inputs
-15. Upload folder creator and protector
-16. SHA-128 File name Hashing
-17. Easy to setup
+16. Generate HTML Forms [Single,Multi] Inputs
+17. Upload folder creator and protector
+18. SHA-128 File name Hashing
+19. Error Messages Manager
+20. Upload Worker Factory Genertor
+21. Easy to setup in less then 5 minutes
 
 # How to use
 
@@ -477,6 +483,89 @@ Example:
 echo $upload->fixIntegerOverflow(43204295316111414);
 ```
 
+## $Upload::getJSON()
+Get all the uploaded file information in JSON
+
+Example:
+```php
+echo $upload->getJSON();
+```
+
+## $Upload::add_file($json_string)
+Function to add a file to the files array
+
+Example:
+```php
+$upload->add_file($upload->getJSON());
+```
+
+## $Upload::get_files()
+Function to return all the uploaded files information array
+
+Example:
+```php
+$files = $get_files();
+```
+
+## $Upload::getMessage($index)
+Function to get a log message using a message index id
+
+Example:
+```php
+echo $upload->getMessage(5);
+```
+
+## $Upload::includeBootstrap()
+Include Bootstrap CSS using Bootstrap CDN
+
+Example:
+```php
+echo $upload->includeBootstrap();
+```
+
+## $Upload::includeJquery()
+Include jQuery Javascript files using CDN
+
+Example:
+```php
+echo $upload->includeJquery();
+```
+
+## $Upload::factory($upload_input, $size_limit)
+Function to create an upload worker using one line of code and with all firewalls enabled with a size limit of 10MB per uploaded file
+
+Example:
+```php
+$upload->factory();
+```
+
+## $Upload::checkDimenstion()
+Check an image dimenstions aginst the class dimenstions
+
+Example:
+```php
+if($checkDimenstion()){
+    echo "This a valid image dimenstion";
+}
+```
+
+## $Upload::setDimenstion($height, $width)
+Function to set class image dimenstions to validate them
+
+Example:
+```php
+$upload->setDimenstion(512, 512);
+```
+
+## $Upload::isImage()
+Function to check if uploaded file is an image
+
+Example:
+```php
+if($upload->isImage()){
+    echo "This is a valid image";
+}
+```
 # Screenshots
 ![Simple Example](https://i.imgur.com/PGLoQzm.png)
 
@@ -516,27 +605,22 @@ echo $upload->generateForm(false);
 include 'BlackUpload/Upload.php';
 ```
 
-9. Use the proposed snippet code to create a simple upload worker
+9. Use the proposed snippet code to create a simple upload worker using the factory
 ```php
 $upload = new Upload;
 
+$upload->setINI(["file_uploads" => 1]);
+
 $upload->setController("BlackUpload/");
 
-if ($_SERVER['REQUEST_METHOD'] === "POST") {
-    $upload->setUploadFolder("upload");
-    $upload->setUpload($_FILES['file']);
-    $upload->setFileOverwriting(true);
-    try {
-        if ($upload->upload()) {
-            echo "Done";
-        }
-    } catch (\Throwable $th) {
-        echo $th->getMessage();
-    }
+if ($upload->factory()) {
+    echo $upload->getJSON();
 }
 ```
 
 10. Enjoy your new file sharing website
 
 # Copyright
-Developed by Snake Des!gn
+Developed by Black.Hacker
+
+Thanks to @Gargron for some functions
