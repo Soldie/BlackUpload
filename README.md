@@ -37,7 +37,7 @@ Developed using PHP and comes with 3 main examples to show you how this PHP Clas
    + Multiple Arguments
 9. Logs System Function
 10. File and Dir checker
-11. Will documented and easy to read
+11. Will Documented and easy to read
 12. QR Code Generator
 13. Download URL Generator
 14. Comes with more then 1 example
@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 }
 ```
 
-# Documation
+# Documentation
 
 ## $Upload::setUpload($upload_input)
 
