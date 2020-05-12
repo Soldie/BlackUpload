@@ -1,5 +1,7 @@
 ![Logo](https://h.top4top.io/p_1531l8fhu1.png)
 
+![GradeA](https://www.code-inspector.com/project/8000/status/svg)
+
 # BlackUpload PHP Library
 
 PHP Library to help you build your own file sharing website.
